@@ -1,6 +1,6 @@
 # 老人活动中心 - 群成员之爹
 
-这个bot专门为我们频道孤寡老人制作，除了discord指南提供的石头剪刀布功能外更提供温馨聊天功能，深受群成员喜爱
+这个bot专门为我们频道孤寡老人制作，除了discord指南提供的石头剪刀布功能外更有温馨聊天功能，兼具文字与语音，深受群成员喜爱
 
 ![Demo of app](https://raw.githubusercontent.com/discord/discord-example-app/main/assets/getting-started-demo.gif)
 
