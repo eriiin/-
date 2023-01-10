@@ -1,32 +1,3 @@
-// const express = require("express");
-// const {
-//   InteractionType,
-//   InteractionResponseType,
-//   InteractionResponseFlags,
-//   MessageComponentTypes,
-//   ButtonStyleTypes,
-// } = require ("discord-interactions");
-// const {
-//   VerifyDiscordRequest,
-//   getRandomEmoji,
-//   getRandomNiTian,
-//   getRandomDaily,
-//   DiscordRequest,
-// } = require ("./utils.js");
-// const { getShuffledOptions, getResult } = require ("./game.js");
-// const {
-//   CHALLENGE_COMMAND,
-//   TEST_COMMAND,
-//   HELLO_COMMAND,
-//   HasGuildCommands,
-// } = require ("./commands.js");
-
-// const Discord = require ('discord.js');
-// const { Client, GatewayIntentBits } = require ('discord.js');
-// const { joinVoiceChannel, createAudioPlayer,
-//         createAudioResource, VoiceConnectionStatus,
-//         generateDependencyReport } = require ('@discordjs/voice');
-
 import express from "express";
 import {
   InteractionType,

@@ -9,7 +9,6 @@
 没有structure，懒得搞:
 
 ```
-├── examples    -> short, feature-specific sample apps
 ├── button.js
 ├── modal.js
 ├── selectMenu.js
