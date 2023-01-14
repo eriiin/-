@@ -73,6 +73,12 @@ export const TEST_COMMAND = {
   type: 1,
 };
 
+export const WISH_COMMAND = {
+  name: 'wish',
+  description: '群里捞人',
+  type: 1,
+};
+
 // Command containing options
 export const CHALLENGE_COMMAND = {
   name: 'challenge',

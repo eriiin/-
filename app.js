@@ -1,4 +1,4 @@
-import express from "express";
+  import express from "express";
 import {
   InteractionType,
   InteractionResponseType,
@@ -12,6 +12,7 @@ import {
   getRandomNiTian,
   getRandomDaily,
   playNitianAudio,
+  getRandomCompliment,
   DiscordRequest,
 } from "./utils.js";
 import { getShuffledOptions, getResult } from "./game.js";
@@ -61,18 +62,16 @@ bot.on("messageCreate", (msg) => {
   if (msg.content === "你好") {
     msg.channel.send("好？不好？好？\n我不好，试试输入“/hello”指令让我开心一下。");
   }
-  if (msg.content.toLowerCase().includes("ow")||
+  if (msg.content.toLowerCase().includes("来ow")||
     msg.content.trim().replaceAll(/\s/g, "").includes("守望")) {
     msg.channel.send("又来坐牢啦？ <:liuHanHuangDou:1002706040913141820> ");
   }
-  if (
-    msg.content.trim().replaceAll(/\s/g, "").includes("玩不") ||
+  if (msg.content.trim().replaceAll(/\s/g, "").includes("玩不") ||
     msg.content.trim().replaceAll(/\s/g, "").includes("玩什么") ||
     msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("van不") ||
     msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("van什么") ||
-    msg.content.includes("玩啥")
-  ) {
-    msg.channel.send("玩？玩？？玩你妹 <:shutup:1035387028239556609> ");
+    msg.content.includes("玩啥")) {
+    msg.channel.send("玩？玩？？<:shutup:1035387028239556609> ");
   }
   if (
     msg.content.trim().replaceAll(/\s/g, "").includes("nm") ||
@@ -80,22 +79,26 @@ bot.on("messageCreate", (msg) => {
     msg.content.toLowerCase().includes("屌") ||
     msg.content.toLowerCase().includes("sd")
   ) {
-    msg.channel.send("温馨提醒：文明上网 <:gunleft:942292749758124094>  ");
+    msg.channel.send("温馨提醒：文明上网 <:gunleft:942292749758124094> ");
   }
   if (msg.content.includes("睡了") || msg.content.includes("晚安") ||
     msg.content.includes("886") || msg.content.includes("再见")
   ) {
-    msg.channel.send("赶紧爬 <:liuHanHuangDou:1002706040913141820>");
+    // if(msg.member.name){}
+    msg.channel.send("睡觉小心鼙鼓 <:oishii:1002704930345324595> ");
   }
   if (msg.content.includes("洗澡") || msg.content.includes("🛀")) {
-    msg.channel.send("洗？洗？？洗你妹 <:liuHanHuangDou:1002706040913141820> ");
+    msg.channel.send("洗？洗？？<:liuHanHuangDou:1002706040913141820> ");
   }
   
   if (msg.content.trim().replaceAll(/\s/g, "").includes("来点群成员生活日常")) {
     msg.channel.send(getRandomDaily());
   }
+  if (msg.content.trim().replaceAll(/\s/g, "") === "好叮") {
+    msg.channel.send(getRandomCompliment());
+  }
   
-  if (msg.member.voice.channelId){
+  if (msg.member.voice.channelId && !msg.content.startsWith("https:")){
   // play specific audio if member in vc and sent trigger keyword
     if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("我zhao")) {
       // audio url
@@ -119,10 +122,31 @@ bot.on("messageCreate", (msg) => {
       playNitianAudio(msg, audioUrl, audioLen);
 
     }
-    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("哈哈")) {
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "") === "哈哈") {
       
       const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/hahaha.mp3?v=1673235415643";
       const audioLen = 3000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("不友善")) {
+      
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/buyoushan.mp3?v=1673600753933";
+      const audioLen = 10000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("叼")) {
+      
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/diaonia.mp3?v=1673601067276";
+      const audioLen = 8000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("唠")) {
+      
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/jiushilao.mp3?v=1673601272160";
+      const audioLen = 2000;
       playNitianAudio(msg, audioUrl, audioLen);
       
     }
@@ -142,14 +166,12 @@ bot.on("messageCreate", (msg) => {
     }
     if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("浮夸")) {
       
-      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/fukua373.mp3?v=1673235920680";
-      const audioLen = 28500;
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/fukua373.mp3?v=1673235920680https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/fukua373.mp3?v=1673407611820";
+      const audioLen = 5000;
       playNitianAudio(msg, audioUrl, audioLen);
       
     }
-    if (
-      msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("说的道理")
-    ) {
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("说的道理")) {
       
       const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/shuoDeDaoLiFullVer.mp3?v=1673235994840";
       const audioLen = 28500;
@@ -171,10 +193,8 @@ bot.on("messageCreate", (msg) => {
       playNitianAudio(msg, audioUrl, audioLen);
       
     }
-    if (
-      msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("neko") &&
-      msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("大笑")
-    ) {
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("neko") &&
+      msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("大笑")) {
       
       const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/12fadian.mp3?v=1673236621634";
       const audioLen = 3000;
@@ -197,9 +217,17 @@ bot.on("messageCreate", (msg) => {
       playNitianAudio(msg, audioUrl, audioLen);
       
     }
-    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("b动静")) {
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("屁眼子") ||
+      msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("皮燕子"))      {
+ 
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/pyz.mp3?v=1673413959307";
+      const audioLen = 4000;
+      playNitianAudio(msg, audioUrl, audioLen);
       
-      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/bdongjing.mp3?v=1673234484571";
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("seki"))     {
+ 
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/sekia.mp3?v=1673592606844";
       const audioLen = 4000;
       playNitianAudio(msg, audioUrl, audioLen);
       
@@ -208,6 +236,12 @@ bot.on("messageCreate", (msg) => {
       
       const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/wudile.mp3?v=1673301803479";
       const audioLen = 4000;
+      playNitianAudio(msg, audioUrl, audioLen);
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("进")) {
+      
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/jinjinjin.mp3?v=1673487399667";
+      const audioLen = 8000;
       playNitianAudio(msg, audioUrl, audioLen);
     }
     if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("下了") ||
@@ -234,10 +268,95 @@ bot.on("messageCreate", (msg) => {
       playNitianAudio(msg, audioUrl, audioLen);
       
     }
-    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("j")) {
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("jj")) {
       const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/jja.mp3?v=1673249588690";
+      const audioLen = 3100;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("wohoho")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/wohohohoho.mp3?v=1673397804367";
       const audioLen = 3600;
       playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("垃圾咯")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/lajilo.mp3?v=1673399318416";
+      const audioLen = 1200;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("打条毛")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/wahahadatiaomao.mp3?v=1673399402206";
+      const audioLen = 8000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("fp")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/guanwopshi.mp3?v=1673400317185";
+      const audioLen = 2000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("玩jj")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/wanjj.mp3?v=1673400394633";
+      const audioLen = 5000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("突击")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/goodxiaorizi.mp3?v=1673400499996";
+      const audioLen = 10000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("woo")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/zaiyingyiba.mp3?v=1673400474630";
+      const audioLen = 10000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+     if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("饿")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/eeeeeeeh.mp3?v=1673400875518";
+      const audioLen = 10000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("急个蛋")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/Ggedan.mp3?v=1673401023290";
+      const audioLen = 4500;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("挖矿")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/wakuang.mp3?v=1673401167700";
+      const audioLen = 7000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("梦想破灭")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/Nodream.mp3?v=1673401924333";
+      const audioLen = 4000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("吊你")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/diaoni.mp3?v=1673402093042";
+      const audioLen = 5000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("就是没梦想")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/wenzinodream.mp3?v=1673402229408";
+      const audioLen = 3000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
+    }
+    if (msg.content.toLowerCase().trim().replaceAll(/\s/g, "").includes("加密通话")) {
+      const audioUrl = "https://cdn.glitch.global/b652c6d7-2aa4-4954-b08a-d754ecd5ddd6/ganma.mp3?v=1673402396546";
+      const audioLen = 7000;
+      playNitianAudio(msg, audioUrl, audioLen);
+      
     }
   }
 });
@@ -294,6 +413,10 @@ app.post("/interactions", async function (req, res) {
         },
       });
     }
+    
+    // TODO: add command for wishing
+    
+    
     // "challenge" guild command
     if (name === "challenge" && id) {
       const userId = req.body.member.user.id;

@@ -55,10 +55,10 @@ export function getRandomEmoji() {
 }
 
 export function getRandomNiTian() {
-  const nitianList = ['555你是依托答辩😭','五五欸欸啊啊得个得个😄','你真是个sb😌','wow（电棍声）🤓',
-                      '我是你爹😎','哈哈，举办了😤','你好，第一天来这个频道，感觉像家一样🤖','信誉毛巾 遇水变大变高🧻',
+  const nitianList = ['555你是依托答辩😭','五五欸欸啊啊得个得个😄','真是个sb😌','wow（电棍声）🤓',
+                      '我是你爹😎','哈哈，举办了😤','你好，第一天来这个频道的时候就感觉像家一样🤖','信誉毛巾 遇水变大变高🧻',
                       '我是你爷爷😶‍🌫️','哎哟米诺🌏','芜（汤声）📸','吃香菇吃香菇吃香菇🍄','笨比 焯了👋',
-                      '今天去购物了 超市里 扫货🌊','今天开车上高速了 前面的车 载重 超了✨', '？\n你再说一翅？🍗'];
+                      '今天去购物了 超市里 扫货🌊','今天开车上高速了 前面的车 载重 超了✨', '？\n你再说一翅？🍗','大家好，我是皮燕子，我爱吃皮炎😎'];
   return nitianList[Math.floor(Math.random() * nitianList.length)];
 }
 
@@ -72,6 +72,18 @@ export function getRandomDaily() {
   return dailyList[Math.floor(Math.random() * dailyList.length)];
 }
 
+export function getRandomCompliment() {
+  const nitianList = ['555蒸好听😭','五五欸欸啊啊得个得个😄','牛蛙牛蛙😌','wow（电棍声）🤓',
+                      '电音小子😎','哈哈，好听到举办了😤','你好，第一天来这个频道的时候就感觉真好叮🤖','安可安可安可安可安可安可安可安可🧻',
+                      '群主爬起来给你打call😶‍🌫️','我超，烧起来了🌏','录下来发网上赚流量📸','吃香菇吃香菇吃香菇🍄',
+                      "https://media.discordapp.net/attachments/866885336348098564/1005660098699464797/cf15-ivmqpci9972507.gif",
+                     "https://media.discordapp.net/attachments/866885336348098564/1008948342191042640/ee54c5de59474367a68380ce09dcbfcd.gif",
+                     "https://tenor.com/view/cat-dancing-rave-party-gif-15278437", "https://tenor.com/view/clap-hands-applause-please-satisfied-outstanding-gif-6157549",
+                     "https://tenor.com/view/usagyuuun-singing-scream-microphone-gif-13318890"];
+  return nitianList[Math.floor(Math.random() * nitianList.length)];
+}
+
+
 export function playNitianAudio(msg, audioUrl, audioLen) {
   console.log(msg.channelId, msg.member.voice.channel.id, msg.guildId);
   const connection = joinVoiceChannel({
@@ -80,17 +92,14 @@ export function playNitianAudio(msg, audioUrl, audioLen) {
     guildId: msg.guildId,
     adapterCreator: msg.guild.voiceAdapterCreator,
   });
-
   const resource = createAudioResource(audioUrl, { inlineVolume: true });
-
   const player = createAudioPlayer();
+  
   connection.on(VoiceConnectionStatus.Ready, () => {
     console.log(
       "The connection has entered the Ready state - ready to play audio!"
     );
-
     const subscription = connection.subscribe(player);
-
     player.play(resource);
 
     if (subscription) {
@@ -99,7 +108,6 @@ export function playNitianAudio(msg, audioUrl, audioLen) {
     }
     setTimeout(() => connection.destroy(), audioLen);
   });
-  
   return 0;
 }
 
