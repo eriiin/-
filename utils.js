@@ -79,7 +79,8 @@ export function getRandomCompliment() {
                       "https://media.discordapp.net/attachments/866885336348098564/1005660098699464797/cf15-ivmqpci9972507.gif",
                      "https://media.discordapp.net/attachments/866885336348098564/1008948342191042640/ee54c5de59474367a68380ce09dcbfcd.gif",
                      "https://tenor.com/view/cat-dancing-rave-party-gif-15278437", "https://tenor.com/view/clap-hands-applause-please-satisfied-outstanding-gif-6157549",
-                     "https://tenor.com/view/usagyuuun-singing-scream-microphone-gif-13318890"];
+                     "https://tenor.com/view/usagyuuun-singing-scream-microphone-gif-13318890", "https://tenor.com/view/matt-berry-yell-scream-ahhh-high-note-gif-13942706",
+                     "https://cdn.discordapp.com/attachments/866885336348098564/1063684175598723133/0.png"];
   return nitianList[Math.floor(Math.random() * nitianList.length)];
 }
 
