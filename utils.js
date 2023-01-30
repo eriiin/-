@@ -84,6 +84,27 @@ export function getRandomCompliment() {
   return nitianList[Math.floor(Math.random() * nitianList.length)];
 }
 
+export function getRandomFeichuan() {
+  const dailyList = ['https://tenor.com/view/spaceship-ignace-aleya-outer-space-spacecraft-space-vehicle-gif-17522618', 
+                     'https://tenor.com/view/airship-pusheen-ffxivpusheen-airship-gif-19356959',
+                     'https://tenor.com/view/%E5%A4%AA%E7%A9%BA%E9%A3%9B%E8%88%B9%E9%80%B2%E5%85%A5-%E5%8B%9D%E5%88%A9%E8%99%9F-space-sweepers-%E9%97%96%E5%85%A5%E8%80%85-%E6%93%85%E9%97%96-gif-20246023',
+                     'https://tenor.com/view/zepelin-aisrhip-drawing-conceptart-design-gif-15684920',
+                     'https://tenor.com/view/henry-stickmin-airship-toppat-gif-19839889',
+                     "https://tenor.com/view/oddworld-soulstorm-oddworld-soulstorm-abesexoddus-abesoddysee-gif-21082111"];
+  return dailyList[Math.floor(Math.random() * dailyList.length)];
+}
+
+export function getRandomHuojian() {
+  const dailyList = ['https://tenor.com/view/rocket-launch-moonfall-lift-off-blast-off-take-off-gif-23690002', 
+                     'https://tenor.com/view/doge-to-the-moon-gif-21157635',
+                     'https://tenor.com/view/doge-rocket-gif-4714547',
+                     'https://tenor.com/view/rocket-launch-rock-astronaut-yolo-rodeo-gif-7359344',
+                     'https://tenor.com/view/fart-rocket-rocket-man-jump-gif-16749917',
+                     "https://tenor.com/view/team-rocket-gif-22281072"];
+  return dailyList[Math.floor(Math.random() * dailyList.length)];
+}
+
+
 
 export function playNitianAudio(msg, audioUrl, audioLen) {
   console.log(msg.channelId, msg.member.voice.channel.id, msg.guildId);
